@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:test_belt/src/presentation/navigation/on_generate_route.dart';
-import 'package:test_belt/src/presentation/navigation/routes.dart';
+import 'package:test_belt/src/presentation/navigation/app_router.dart';
 
-class App extends StatefulWidget {
+class App extends StatelessWidget {
   const App({super.key});
 
-  @override
-  State<App> createState() => _AppState();
-}
+  static final _appRouter = AppRouter();
 
-class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(useMaterial3: true),
-      onGenerateRoute: onGenerateRoute,
-      initialRoute: Routes.home,
+      title: 'Test BELT',
+      routerConfig: _appRouter.config(),
     );
   }
 }

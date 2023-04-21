@@ -40,5 +40,4 @@ class GalleryRepository implements IGalleryRepository {
     // TODO: implement saveImageToGallery
     throw UnimplementedError();
   }
-  
 }

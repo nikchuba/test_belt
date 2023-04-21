@@ -1,0 +1,1 @@
+flutter packages pub run build_runner build --delete-conflicting-outputs && dart format -l 80 lib && killall -9 dart
