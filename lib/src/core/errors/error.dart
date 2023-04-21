@@ -29,5 +29,5 @@ class UnexpectedError extends IError {
   @override
   String get message => _name + super._body;
 
-  static const String _name = 'Something went wrong...';
+  static const String _name = 'Unexpected Error: ';
 }

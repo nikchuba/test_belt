@@ -8,6 +8,6 @@ abstract class IGalleryRepository {
   Future<ErrorOr<void>> saveImageToGallery(Image image);
   Future<ErrorOr<void>> saveImageToApp(Image image);
   Future<ErrorOr<void>> deletePaintedImage(Image image);
-  Future<ErrorOr<List<Image>>> getPaintedImages();
+  Future<ErrorOr<List<String>>> getPaintedImages();
   Future<ErrorOr<void>> clearPaintedImages();
 }
