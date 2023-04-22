@@ -8,7 +8,7 @@ import 'package:test_belt/src/core/errors/exception.dart';
 abstract class IGalleryStorageDataSource {
   Future<void> saveImage(Image image);
   Future<List<String>> getImages();
-  Future<void> deleteImage(Image image);
+  Future<void> deleteImageByPath(String path);
   Future<void> deleteAllImages();
 }
 
@@ -55,8 +55,11 @@ class GalleryStorageDataSource implements IGalleryStorageDataSource {
   }
 
   @override
-  Future<void> deleteImage(Image image) {
-    // TODO: implement deleteImage
-    throw UnimplementedError();
+  Future<void> deleteImageByPath(String path) async {
+    await File(path).delete(recursive: true);
+    _prefs.setStringList(
+      imagesKey,
+      [...?_prefs.getStringList(imagesKey)?..removeWhere(path.contains)],
+    );
   }
 }

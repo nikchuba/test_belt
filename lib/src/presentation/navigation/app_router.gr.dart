@@ -21,12 +21,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const GalleryListPage(),
       );
     },
-    ImageDetailsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const ImageDetailsPage(),
-      );
-    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -52,20 +46,6 @@ class GalleryListRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'GalleryListRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [ImageDetailsPage]
-class ImageDetailsRoute extends PageRouteInfo<void> {
-  const ImageDetailsRoute({List<PageRouteInfo>? children})
-      : super(
-          ImageDetailsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ImageDetailsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

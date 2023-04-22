@@ -28,9 +28,13 @@ class GalleryRepository implements IGalleryRepository {
   }
 
   @override
-  Future<ErrorOr<void>> deletePaintedImage(Image image) {
-    // TODO: implement deletePaintedImage
-    throw UnimplementedError();
+  Future<ErrorOr<void>> deletePaintedImageByPath(String path) async {
+    try {
+      final result = await _storageDataSource.deleteImageByPath(path);
+      return Right(result);
+    } catch (e) {
+      return Left(UnexpectedError(e.toString()));
+    }
   }
 
   @override

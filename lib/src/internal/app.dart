@@ -13,7 +13,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<GalleryListBloc>.value(value: locator.get()),
+        BlocProvider<GalleryBloc>.value(value: locator.get()),
         BlocProvider<ImagePickerBloc>.value(value: locator.get()),
       ],
       child: MaterialApp.router(

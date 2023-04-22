@@ -12,4 +12,3 @@ class ImagePickerPickEvent extends ImagePickerEvent {
   @override
   List<Object?> get props => [source];
 }
-

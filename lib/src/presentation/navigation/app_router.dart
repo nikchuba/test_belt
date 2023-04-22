@@ -16,12 +16,7 @@ class AppRouter extends _$AppRouter {
           page: HomeRoute.page,
           children: [
             AutoRoute(page: PainterRoute.page),
-            AutoRoute(
-              page: GalleryListRoute.page,
-              children: [
-                AutoRoute(page: ImageDetailsRoute.page),
-              ],
-            ),
+            AutoRoute(page: GalleryListRoute.page),
           ],
         ),
       ];

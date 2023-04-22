@@ -22,13 +22,26 @@ class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
     ImagePickerPickEvent event,
     Emitter<ImagePickerState> emit,
   ) async {
+    Image? previousImage;
+    if (state is ImagePickerPickedState) {
+      previousImage = (state as ImagePickerPickedState).image;
+    }
+
     emit(const ImagePickerPickingState());
 
     final result = await _repository.pickImageFrom(event.source);
 
     if (result.isRight()) {
       final image = result.asRight();
-      emit(ImagePickerPickedState(image));
+      if (image != null) {
+        emit(ImagePickerPickedState(image));
+      } else {
+        emit(
+          previousImage != null
+              ? ImagePickerPickedState(previousImage)
+              : const ImagePickerEmptyState(),
+        );
+      }
     } else {
       final errorMessage = result.asLeft().message;
       emit(ImagePickerFailureState(errorMessage));
